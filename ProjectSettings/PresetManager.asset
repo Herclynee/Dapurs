@@ -4,16 +4,4 @@
 PresetManager:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_DefaultPresets:
-  - first:
-      m_NativeTypeID: 1006
-      m_ManagedTypePPtr: {fileID: 0}
-      m_ManagedTypeFallback: 
-    second:
-    - m_Preset: {fileID: 0}
-<<<<<<< HEAD
-      m_Filter: glob:"Assets/_Project/Art/**".
-=======
-      m_Filter: glo
->>>>>>> origin/main
-      m_Disabled: 0
+  m_DefaultPresets: {}
