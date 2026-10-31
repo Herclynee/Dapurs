@@ -805,6 +805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de3e4933394f5848820635f92d4c871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  config: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!61 &1775982919
 BoxCollider2D:
   m_ObjectHideFlags: 0
