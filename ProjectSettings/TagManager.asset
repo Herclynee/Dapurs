@@ -47,6 +47,9 @@ TagManager:
   - name: Decor
     uniqueID: 1678676855
     locked: 0
+  - name: Player
+    uniqueID: 4021996015
+    locked: 0
   - name: Characters
     uniqueID: 3173782761
     locked: 0
