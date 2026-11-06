@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Interactable
+  - Wild
+  - CameraBounds
   - 
   - 
   - 
@@ -48,7 +48,7 @@ TagManager:
     uniqueID: 1678676855
     locked: 0
   - name: Player
-    uniqueID: 4021996015
+    uniqueID: 439394613
     locked: 0
   - name: Characters
     uniqueID: 3173782761
