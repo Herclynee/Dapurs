@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac4002447179854e824ac64b2630662, type: 3}
+  m_Name: Mon_Tidalord
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  id: MON_006
+  displayName: Tidalord
+  element: 1
+  frames:
+  - {fileID: -2440824096329132786, guid: 167cd80cee78242419d8de2acf1a524d, type: 3}
+  - {fileID: -4983965312679311996, guid: 167cd80cee78242419d8de2acf1a524d, type: 3}
+  - {fileID: -1620324465, guid: 167cd80cee78242419d8de2acf1a524d, type: 3}
+  - {fileID: 867712290, guid: 167cd80cee78242419d8de2acf1a524d, type: 3}
+  baseHP: 90
+  baseATK: 30
+  baseDEF: 18
+  baseSPD: 16
+  skillName: Tembakan Air
+  evolvesTo: {fileID: 0}
+  evolveLevel: 0

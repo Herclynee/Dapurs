@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -80,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,11 +148,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 96
-        height: 31
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: Aqua_3_Tidalord_32x32_1
       rect:
         serializedVersion: 2
-        x: 95
-        y: 1
-        width: 33
-        height: 31
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,11 +187,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Aqua_3_Tidalord_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9158a84f9ed24164e949ebe15baa304d
+      internalID: -1620324465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aqua_3_Tidalord_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1453361c94b730c4dabdcc927e6b3659
+      internalID: 867712290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3f3237efe92a2d342ba2c444c492c36d
     internalID: 0
     vertices: []
     indices: 
@@ -199,10 +243,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":16.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Aqua_3_Tidalord_32x32_0: -2440824096329132786
       Aqua_3_Tidalord_32x32_1: -4983965312679311996
+      Aqua_3_Tidalord_32x32_10: 793080153
+      Aqua_3_Tidalord_32x32_11: -1267625458
+      Aqua_3_Tidalord_32x32_12: -91718986
+      Aqua_3_Tidalord_32x32_13: -1210247260
+      Aqua_3_Tidalord_32x32_14: -1958320425
+      Aqua_3_Tidalord_32x32_15: 885956522
+      Aqua_3_Tidalord_32x32_2: -1620324465
+      Aqua_3_Tidalord_32x32_3: 867712290
+      Aqua_3_Tidalord_32x32_4: 232777071
+      Aqua_3_Tidalord_32x32_5: -1880820077
+      Aqua_3_Tidalord_32x32_6: -706942598
+      Aqua_3_Tidalord_32x32_7: -677983202
+      Aqua_3_Tidalord_32x32_8: 1502988902
+      Aqua_3_Tidalord_32x32_9: 1890728903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

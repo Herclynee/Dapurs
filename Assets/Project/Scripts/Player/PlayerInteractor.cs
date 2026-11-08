@@ -1,8 +1,5 @@
 using UnityEngine;
 
-public interface IActionInput { bool InteractPressed { get; } }
-public interface IInteractable { void Interact(PlayerInteractor who); }
-
 public class PlayerInteractor : MonoBehaviour
 {
     [SerializeField] private PlayerMovement movement;
