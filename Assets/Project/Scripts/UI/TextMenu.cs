@@ -3,10 +3,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
+       
 public class TextMenu : MonoBehaviour
 {
-    [SerializeField] private Text[] rows;        // Btn_0..Btn_3 (komponen Text)
-    [SerializeField] private int columns = 1;    // battle: 2
+    [SerializeField] private Text[] rows;        
+    [SerializeField] private int columns = 1;    
 
     public event Action<int> Picked;
     public int Selected { get; private set; }
@@ -16,6 +18,7 @@ public class TextMenu : MonoBehaviour
     private int count;
     private bool acceptInput;
     private bool locked;
+    public static AudioService Sfx;
 
     void Awake()
     {
@@ -81,15 +84,18 @@ public class TextMenu : MonoBehaviour
         int col = Selected % columns + dCol;
         if (col < 0 || col >= columns || row < 0) return;
         int index = row * columns + col;
-        if (index >= count) return;
+        if (index >= count || index == Selected) return;
         Selected = index;
+        if (Sfx != null) Sfx.PlayMove();
         Redraw();
     }
 
     private void Pick(int index)
     {
-        if (index < 0 || index >= count || !usable[index]) return;   // redup: tidak bisa dipilih
-        locked = true;                                               // cegah pilih ganda
+        if (index < 0 || index >= count) return;
+        if (!usable[index]) { if (Sfx != null) Sfx.PlayCancel(); return; }   // redup: bunyi batal
+        locked = true;
+        if (Sfx != null) Sfx.PlayConfirm();
         Picked?.Invoke(index);
     }
 

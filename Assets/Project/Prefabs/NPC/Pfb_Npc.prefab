@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4202239265343754469}
   - component: {fileID: 5993511797594252107}
   - component: {fileID: 2595454506429448194}
-  - component: {fileID: 8404858220813882977}
   m_Layer: 7
   m_Name: Pfb_Npc
   m_TagString: Untagged
@@ -140,21 +139,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &8404858220813882977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4993603739418972056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0856b0e9e9559bb409deebb2639ebeef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Npc
-  npcName: Warga
-  body: {fileID: 5993511797594252107}
-  faceDown: {fileID: 0}
-  faceLeft: {fileID: 0}
-  faceRight: {fileID: 0}
-  faceUp: {fileID: 0}

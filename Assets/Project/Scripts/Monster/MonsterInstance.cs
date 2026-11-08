@@ -45,6 +45,13 @@ public class MonsterInstance : IDamageable
         Changed?.Invoke();
     }
 
+    public void Restore(int exp, int hp)           
+    {
+        Exp = Mathf.Max(0, exp);
+        CurrentHP = Mathf.Clamp(hp, 1, MaxHP);
+        Changed?.Invoke();
+    }
+
     public List<GrowthEvent> GainExp(int amount)
     {
         var events = new List<GrowthEvent>();

@@ -7,4 +7,11 @@ public class GameServices
     public PlayerParty Party;
     public BattleSession Battle;
     public SceneFlow Scenes;
+
+    public StoryFlags Flags;           
+    public SaveService Save;
+    public DialogueRunner Dialogue;
+    public ToastView Toast;
+    public AudioService Audio;
+    public Transform Player;           
 }

@@ -8,6 +8,8 @@ public class AreaZone : MonoBehaviour
 
     [SerializeField] private string areaName = "Desa Awal";
     public string AreaName => areaName;
+    [SerializeField] private AudioClip music;      
+    public AudioClip Music => music;
 
     void OnTriggerEnter2D(Collider2D other)
     {

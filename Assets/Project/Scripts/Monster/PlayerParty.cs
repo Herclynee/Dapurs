@@ -17,5 +17,14 @@ public class PlayerParty
         return true;
     }
 
-    public void AddPotions(int n) { Potions += n; PotionsChanged?.Invoke(); }   
+    public void AddPotions(int n) { Potions += n; PotionsChanged?.Invoke(); }
+    public void SetPotions(int n) { Potions = Math.Max(0, n); PotionsChanged?.Invoke(); }
+
+    public void Reset()                       
+    {
+        Partner = null;
+        Potions = 3;
+        Changed?.Invoke();
+        PotionsChanged?.Invoke();
+    }
 }

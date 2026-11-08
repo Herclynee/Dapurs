@@ -87,5 +87,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4993603739418972056, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3287569175722295746}
   m_SourcePrefab: {fileID: 100100000, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+--- !u!212 &2522982263045363559 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5993511797594252107, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+  m_PrefabInstance: {fileID: 8083490987916784684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3846791089570233268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4993603739418972056, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+  m_PrefabInstance: {fileID: 8083490987916784684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3287569175722295746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846791089570233268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0856b0e9e9559bb409deebb2639ebeef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Npc
+  npcName: Sari
+  body: {fileID: 2522982263045363559}
+  faceDown: {fileID: -5339384341012602559, guid: 1830b9fc892355d45a078979ade52b41, type: 3}
+  faceLeft: {fileID: 3001774950986503798, guid: 1830b9fc892355d45a078979ade52b41, type: 3}
+  faceRight: {fileID: 5369644166850814546, guid: 1830b9fc892355d45a078979ade52b41, type: 3}
+  faceUp: {fileID: -2836052450988231513, guid: 1830b9fc892355d45a078979ade52b41, type: 3}
+  dialogue: {fileID: 0}

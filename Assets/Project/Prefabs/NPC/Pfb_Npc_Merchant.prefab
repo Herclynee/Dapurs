@@ -87,5 +87,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4993603739418972056, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7639015026298196249}
   m_SourcePrefab: {fileID: 100100000, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+--- !u!212 &445866482448353021 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5993511797594252107, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+  m_PrefabInstance: {fileID: 6133113301164467638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1175978440843651630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4993603739418972056, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+  m_PrefabInstance: {fileID: 6133113301164467638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7639015026298196249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175978440843651630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de58c6ad83f8ef47934b31c4e1697c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MerchantNpc
+  npcName: Pedagang
+  body: {fileID: 445866482448353021}
+  faceDown: {fileID: 2700042031433159083, guid: cfc83963c339183488ae17748e2f877d, type: 3}
+  faceLeft: {fileID: 1958943900099417703, guid: cfc83963c339183488ae17748e2f877d, type: 3}
+  faceRight: {fileID: -290154630455276140, guid: cfc83963c339183488ae17748e2f877d, type: 3}
+  faceUp: {fileID: 8136761100962439019, guid: cfc83963c339183488ae17748e2f877d, type: 3}
+  dialogue: {fileID: 0}
+  healClip: {fileID: 8300000, guid: e4cc28351a5ef644aa148f359cc63257, type: 3}

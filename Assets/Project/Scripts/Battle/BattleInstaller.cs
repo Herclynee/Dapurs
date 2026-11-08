@@ -7,12 +7,20 @@ public class BattleInstaller : SceneInstaller
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private Sprite forestBackground;
     [SerializeField] private Sprite caveBackground;
+    [SerializeField] private AudioClip battleMusic;            // BGM_Battle
+    [SerializeField] private AudioClip bossMusic;              // BGM_Boss
+    [SerializeField] private BattleSfx sfx;
 
     public override void Install(GameServices s)
     {
         background.sprite = s.Battle.IsBoss ? caveBackground : forestBackground;
         battle.Construct(s.Party, s.Battle, s.Scenes);
-        new BattlePresenter(battle, view);                 // sambungkan event
-        battle.Begin();                                    // P6: + BattleAudio, P7: + BattleFeel
+        new BattlePresenter(battle, view);
+        if (s.Audio != null)
+        {
+            s.Audio.PlayBattleMusic(s.Battle.IsBoss ? bossMusic : battleMusic);
+            new BattleAudio(battle, s.Audio, sfx);
+        }
+        battle.Begin();                                         // P7: + BattleFeel
     }
 }

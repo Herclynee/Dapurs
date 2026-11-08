@@ -32,4 +32,13 @@ public class PlayerMovement : MonoBehaviour
         Mathf.Abs(v.x) > Mathf.Abs(v.y)
             ? new Vector2(Mathf.Sign(v.x), 0f)
             : new Vector2(0f, Mathf.Sign(v.y));
+
+    public void Teleport(Vector2 position, Vector2 facing)
+    {
+        transform.position = position;
+        if (body != null) { body.position = position; body.linearVelocity = Vector2.zero; }
+        velocity = Vector2.zero;
+        Facing = facing;
+        Physics2D.SyncTransforms();
+    }
 }

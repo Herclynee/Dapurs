@@ -87,5 +87,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4993603739418972056, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7461000399588831976}
   m_SourcePrefab: {fileID: 100100000, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+--- !u!1 &4811597496375465488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4993603739418972056, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+  m_PrefabInstance: {fileID: 543495516143425928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7461000399588831976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811597496375465488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 514acb6c634f4a241892987b37c00d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GuardNpc
+  npcName: Penjaga Gerbang
+  body: {fileID: 6100083309516749507}
+  faceDown: {fileID: -2558671177114619053, guid: ffdadeca0bde398408735a246ff4edab, type: 3}
+  faceLeft: {fileID: 5811429871203033054, guid: ffdadeca0bde398408735a246ff4edab, type: 3}
+  faceRight: {fileID: -3054188975437900916, guid: ffdadeca0bde398408735a246ff4edab, type: 3}
+  faceUp: {fileID: -2267110483006603577, guid: ffdadeca0bde398408735a246ff4edab, type: 3}
+  dialogue: {fileID: 0}
+  asidePosition: {x: 22.5, y: 10.4}
+--- !u!212 &6100083309516749507 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5993511797594252107, guid: 8f5109f38dc1d1e4b8cb976dacde42e4, type: 3}
+  m_PrefabInstance: {fileID: 543495516143425928}
+  m_PrefabAsset: {fileID: 0}

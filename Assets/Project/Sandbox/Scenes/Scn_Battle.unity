@@ -1613,6 +1613,16 @@ MonoBehaviour:
   background: {fileID: 938195851}
   forestBackground: {fileID: 21300000, guid: e187724534a49894aba4be16af22cb6e, type: 3}
   caveBackground: {fileID: 21300000, guid: e5054db837868b4458044ae97063d299, type: 3}
+  battleMusic: {fileID: 0}
+  bossMusic: {fileID: 0}
+  sfx:
+    hit: {fileID: 0}
+    critical: {fileID: 0}
+    miss: {fileID: 0}
+    faint: {fileID: 0}
+    victory: {fileID: 0}
+    levelUp: {fileID: 0}
+    evolve: {fileID: 0}
 --- !u!114 &972446718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,7 +2400,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '   Jurus (3)'
+  m_Text: '   Jurus'
 --- !u!222 &1551893398
 CanvasRenderer:
   m_ObjectHideFlags: 0

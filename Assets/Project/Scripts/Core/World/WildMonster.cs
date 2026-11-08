@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class WildMonster : MonoBehaviour
@@ -31,6 +32,8 @@ public class WildMonster : MonoBehaviour
     private SceneFlow scenes;
     private PlayerParty party;
     private Transform target;                          // Player
+    private InputGate gate;
+    private DialogueRunner dialogue;
 
     // ===== C. KEADAAN INTERNAL =====
     private Rigidbody2D body;
@@ -59,7 +62,7 @@ public class WildMonster : MonoBehaviour
     public Vector2 DirectionToTarget => ((Vector2)target.position - Position).normalized;
 
     // "Tenang" = monster sedang tidak boleh agresif
-    private bool Calm => cooldown > 0f || session.IsSafe;      // P6 menambah: || gate.IsLocked
+    private bool Calm => cooldown > 0f || session.IsSafe || gate.IsLocked;      // diam saat dialog/jeda
     public bool CanSeeTarget => party.Partner != null && !Calm && DistanceToTarget < sightRadius;
     public bool LostTarget => Calm || DistanceToTarget > giveUpRadius;
 
@@ -89,12 +92,11 @@ public class WildMonster : MonoBehaviour
     }
 
     // Dipanggil WorldInstaller: "ini peralatanmu"
-    public void Construct(BattleSession battle, SceneFlow sceneFlow, PlayerParty playerParty, Transform player)
+    public void Construct(BattleSession battle, SceneFlow sceneFlow, PlayerParty playerParty,
+                      Transform player, InputGate inputGate, DialogueRunner dialogueRunner)
     {
-        session = battle;
-        scenes = sceneFlow;
-        party = playerParty;
-        target = player;
+        session = battle; scenes = sceneFlow; party = playerParty; target = player;
+        gate = inputGate; dialogue = dialogueRunner;
     }
 
     void Update()
@@ -132,9 +134,28 @@ public class WildMonster : MonoBehaviour
         desiredVelocity = Vector2.zero;
         SetAlert(false);
 
+        if (isBoss) StartCoroutine(BossIntro());
+        else StartBattle();
+    }
+
+    private IEnumerator BossIntro()                          // auman dulu, baru battle
+    {
+        dialogue.Run(Roar());
+        yield return null;
+        while (dialogue.IsRunning) yield return null;
+        StartBattle();
+    }
+
+    private IEnumerator Roar()
+    {
+        yield return dialogue.Say("", $"GRRRAAAH!! {species.DisplayName} menghalangi jalan, percikan listrik memenuhi gua!");
+    }
+
+    private void StartBattle()
+    {
         var enemy = new MonsterInstance(species, Random.Range(minLevel, maxLevel + 1));
-        session.Begin(enemy, isBoss, OnBattleFinished);   // 1. catat musuh + "telepon balik"
-        scenes.EnterBattle();                             // 2. kunci input, fade, muat Scn_Battle
+        session.Begin(enemy, isBoss, OnBattleFinished);
+        scenes.EnterBattle();
     }
 
     private void OnBattleFinished(BattleResult result)
