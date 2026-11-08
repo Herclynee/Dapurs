@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072d1d43c1e42a64aaaf96ee758b2b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 3
+  config: {fileID: 11400000, guid: 7870bde0d49345b4183e7a86e77e43cd, type: 2}
   rb: {fileID: 345662379}
 --- !u!61 &345662378
 BoxCollider2D:
