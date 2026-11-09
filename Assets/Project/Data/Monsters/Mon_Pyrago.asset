@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32a76cbbed45ff4dba7d488d70cfc5c, type: 3}
+  m_Name: Mon_Pyrago
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  id: MON_002
+  displayName: Pyrago
+  element: 0
+  frames:
+  - {fileID: 8755920683797037524, guid: c94fdc9d86da87b4594f59fa765e8b95, type: 3}
+  baseHP: 72
+  baseATK: 25
+  baseDEF: 14
+  baseSPD: 18
+  skillName: Semburan Api
+  evolvesTo: {fileID: 11400000, guid: 90fc9dd138d6fce4386f8f7d85a3f595, type: 2}
+  evolveLevel: 9

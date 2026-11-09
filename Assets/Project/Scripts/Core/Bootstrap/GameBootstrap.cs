@@ -5,19 +5,22 @@ using UnityEngine.SceneManagement;
 public class GameBootstrap : MonoBehaviour
 {
     [SerializeField] private string firstScene = "Scn_World";
-    private IMoveInput moveInput;
-    private IActionInput actionInput;                  // BARU
+    [SerializeField] private MonsterDatabase monsterDatabase;
+    [SerializeField] private ScreenFader fader;
+    private GameServices services;
 
     void Awake()
     {
-        moveInput = new InputSystemMoveInput();
-        actionInput = new InputSystemActionInput();    // BARU
+        var gate = new InputGate(new InputSystemMoveInput(), new InputSystemActionInput());
+        services = new GameServices
+        {
+            Input = gate,
+            Database = monsterDatabase,
+            Party = new PlayerParty(),
+            Battle = new BattleSession(),
+        };
+        services.Scenes = new SceneFlow(this, fader, services);
     }
 
-    IEnumerator Start()
-    {
-        yield return SceneManager.LoadSceneAsync(firstScene, LoadSceneMode.Additive);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(firstScene));
-        FindAnyObjectByType<WorldInstaller>().Install(moveInput, actionInput);  // BERUBAH: 2 argumen
-    }
+    void Start() => services.Scenes.GoTo(firstScene);
 }

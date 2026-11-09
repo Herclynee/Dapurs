@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32a76cbbed45ff4dba7d488d70cfc5c, type: 3}
+  m_Name: Mon_Finnox
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  id: MON_005
+  displayName: Finnox
+  element: 1
+  frames:
+  - {fileID: -82409557241251320, guid: f80f0b4b03b9a8e408d1152c2a9414ba, type: 3}
+  baseHP: 86
+  baseATK: 18
+  baseDEF: 21
+  baseSPD: 14
+  skillName: Semburan Air
+  evolvesTo: {fileID: 11400000, guid: 4e88e1e5fcf2ec84ba8552f7aa149cdd, type: 2}
+  evolveLevel: 9

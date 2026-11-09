@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32a76cbbed45ff4dba7d488d70cfc5c, type: 3}
+  m_Name: Mon_Blubi
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  id: MOON_004
+  displayName: Blubi
+  element: 1
+  frames:
+  - {fileID: 3550268219214689552, guid: f44e681df441e894f92a424376b32cb3, type: 3}
+  baseHP: 48
+  baseATK: 10
+  baseDEF: 12
+  baseSPD: 8
+  skillName: Semburan Air
+  evolvesTo: {fileID: 11400000, guid: 4faaf5d32a9ce074c82827d10106a43b, type: 2}
+  evolveLevel: 5

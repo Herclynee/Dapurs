@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32a76cbbed45ff4dba7d488d70cfc5c, type: 3}
+  m_Name: Mon_Raijugar
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  id: MON_012
+  displayName: Raijugar
+  element: 3
+  frames:
+  - {fileID: -4809201893061458815, guid: 60f6d9ac18cc5e34a864df2c961c6722, type: 3}
+  baseHP: 114
+  baseATK: 36
+  baseDEF: 21
+  baseSPD: 42
+  skillName: Semburan Listrik
+  evolvesTo: {fileID: 0}
+  evolveLevel: 0
