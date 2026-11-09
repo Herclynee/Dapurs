@@ -29,11 +29,16 @@ public class SceneFlow
         SceneManager.sceneLoaded -= OnSceneLoaded;
 
         // Cari SceneInstaller di scene yang baru saja di-load
-        var installer = Object.FindFirstObjectByType<SceneInstaller>();
+        var installer = Object.FindAnyObjectByType<SceneInstaller>();
         
         if (installer != null)
         {
+            Debug.Log($"✅ [SceneFlow] Installer ditemukan: {installer.GetType().Name}");
             installer.Install(services);
+        }
+        else
+        {
+            Debug.LogError($"❌ [SceneFlow] Installer TIDAK DITEMUKAN di {scene.name}!");
         }
 
         // Fade in setelah install selesai

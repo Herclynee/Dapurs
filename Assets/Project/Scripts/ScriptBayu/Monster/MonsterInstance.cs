@@ -1,70 +1,85 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterInstance : IDamageable
+public enum GrowthType { LevelUp, Evolve }
+
+public class GrowthEvent
 {
-    // Data statis (bisa berubah jika evolusi)
+    public GrowthType Type;
+    public MonsterInstance From; // Data lama
+    public MonsterInstance To;   // Data baru (jika evolusi)
+    public string Message;
+}
+
+public class MonsterInstance
+{
     public MonsterData Data { get; private set; }
-    
-    // Data hidup
     public int Level { get; private set; }
     public int CurrentHP { get; private set; }
     public int Exp { get; private set; }
 
-    // Event untuk memberi tahu UI jika ada perubahan (akan dipakai di P5)
-    public event System.Action Changed;
-
-    // Rumus Skala: Level 1 = 1.0x, Level 2 = 1.1x, dst.
     private float Scale => 1f + (Level - 1) * 0.1f;
 
-    // Property Stat Dinamis
     public int MaxHP => Mathf.RoundToInt(Data.BaseHP * Scale) + Level * 2;
     public int Attack => Mathf.RoundToInt(Data.BaseATK * Scale);
+    public int Defense => Mathf.RoundToInt(Data.BaseDEF * Scale);
+    public int Speed => Mathf.RoundToInt(Data.BaseSPD * Scale);
     public int ExpToNext => Level * 10;
 
-    // Constructor
-    public MonsterInstance(MonsterData data, int startLevel)
+    public MonsterInstance(MonsterData data, int level)
     {
         Data = data;
-        Level = startLevel;
-        CurrentHP = MaxHP; // HP penuh saat dibuat
+        Level = level;
+        CurrentHP = MaxHP;
+        Exp = 0;
     }
 
-    // Method dari IDamageable
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount) => CurrentHP = Mathf.Max(0, CurrentHP - amount);
+
+    public int Heal(int amount)
     {
-        CurrentHP = Mathf.Max(0, CurrentHP - amount);
-        Changed?.Invoke();
+        int before = CurrentHP;
+        CurrentHP = Mathf.Min(MaxHP, CurrentHP + amount);
+        return CurrentHP - before;
     }
 
-    // Logika EXP dan Evolusi
-    public void GainExp(int amount)
+    // Method baru: Mengembalikan list peristiwa (Level Up / Evolusi)
+    public List<GrowthEvent> GainExp(int amount)
     {
+        List<GrowthEvent> events = new List<GrowthEvent>();
         Exp += amount;
-        
-        // Naik Level (Sederhana: langsung naik jika EXP cukup)
-        while (Exp >= ExpToNext)
+
+        while (Exp >= ExpToNext && Level < 9)
         {
             Exp -= ExpToNext;
             Level++;
-            CurrentHP = MaxHP; // HP penuh saat naik level
-            Debug.Log($"{Data.DisplayName} naik ke Level {Level}!");
-            
-            // Cek Evolusi
-            CheckEvolution();
-        }
-        Changed?.Invoke();
-    }
+            CurrentHP = MaxHP; // Full heal saat level up
 
-    private void CheckEvolution()
-    {
-        // Jika sudah mencapai level evolusi DAN ada bentuk selanjutnya
-        if (Data.EvolveLevel > 0 && Level >= Data.EvolveLevel && Data.EvolvesTo != null)
-        {
-            MonsterData nextForm = Data.EvolvesTo;
-            Debug.Log($"{Data.DisplayName} berevolusi menjadi {nextForm.DisplayName}!");
-            
-            Data = nextForm; // Ganti data statis ke bentuk baru
-            CurrentHP = MaxHP; // Sesuaikan HP dengan bentuk baru
+            GrowthEvent levelUp = new GrowthEvent
+            {
+                Type = GrowthType.LevelUp,
+                From = new MonsterInstance(Data, Level - 1),
+                Message = $"{Data.DisplayName} naik ke Level {Level}!"
+            };
+            events.Add(levelUp);
+
+            // Cek evolusi
+            if (Data.EvolvesTo != null && Level >= Data.EvolveLevel)
+            {
+                MonsterInstance oldForm = new MonsterInstance(Data, Level);
+                Data = Data.EvolvesTo; // Ganti data jadi bentuk evolusi
+                CurrentHP = MaxHP;     // Refresh HP dengan stat baru
+
+                GrowthEvent evolve = new GrowthEvent
+                {
+                    Type = GrowthType.Evolve,
+                    From = oldForm,
+                    To = new MonsterInstance(Data, Level),
+                    Message = $"{oldForm.Data.DisplayName} berevolusi menjadi {Data.DisplayName}!"
+                };
+                events.Add(evolve);
+            }
         }
+        return events;
     }
 }

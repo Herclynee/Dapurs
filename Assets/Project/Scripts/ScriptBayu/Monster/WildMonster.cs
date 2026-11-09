@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class WildMonster : MonoBehaviour
 {
+    [Header("Monster Data")]
+    [SerializeField] private MonsterData monsterData;
+    [SerializeField] private int level = 3;
+
     [Header("Visuals")]
-    [SerializeField] private GameObject alertSign; // Objek tanda "!"
+    [SerializeField] private GameObject alertSign;
     [SerializeField] private bool isBoss = false;
-    [SerializeField] private bool stationary = false; // Untuk Boss
+    [SerializeField] private bool stationary = false;
 
     [Header("Settings")]
     [SerializeField] private float sightRadius = 3.25f;
@@ -13,44 +17,56 @@ public class WildMonster : MonoBehaviour
     [SerializeField] private float wanderRadius = 3f;
     [SerializeField] private float wanderSpeed = 1.125f;
     [SerializeField] private float chaseSpeed = 2.5f;
-    // Property public agar bisa diakses oleh State
+
+    public MonsterInstance Instance { get; private set; }
+    public bool IsBoss => isBoss;
     public float WanderSpeed => wanderSpeed;
     public float ChaseSpeed => chaseSpeed;
 
-    public StateMachine fsm;
+    [System.NonSerialized] public StateMachine fsm;
+    
     private Vector2 homePosition;
     private Transform playerTransform;
     private Rigidbody2D rb;
 
-    // Placeholder untuk Praktikum 5
     private bool inBattle = false;
-    private float cooldown = 0f;
+
+    private BattleSession session;
+    private SceneFlow sceneFlow;
+    private PlayerParty party;  
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         homePosition = transform.position;
-        // Cari Player berdasarkan Tag "Player"
         playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        if (monsterData != null)
+        {
+            Instance = new MonsterInstance(monsterData, level);
+        }
+        else
+        {
+            Debug.LogError($"[WildMonster] Data monster pada {gameObject.name} KOSONG!");
+        }
         
         SetupFSM();
     }
 
     void Update()
     {
-        if (cooldown > 0f) cooldown -= Time.deltaTime;
-
-        // Jika Boss diam, atau sedang battle, atau player tidak ada -> Diam
         if (stationary || inBattle || playerTransform == null)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
 
-        fsm.Tick(Time.deltaTime);
+        if (fsm != null)
+        {
+            fsm.Tick(Time.deltaTime);
+        }
 
-        // Tampilkan tanda "!" hanya saat state Chase
-        if (alertSign != null)
+        if (alertSign != null && fsm != null)
         {
             alertSign.SetActive(fsm.Current is ChaseState);
         }
@@ -59,22 +75,17 @@ public class WildMonster : MonoBehaviour
     private void SetupFSM()
     {
         fsm = new StateMachine();
-        
-        // Buat 3 State
         var wander = new WanderState(this);
         var chase = new ChaseState(this);
         var ret = new ReturnState(this);
 
-        // Atur Transisi
         wander.SetTransitions(chase, null);
         chase.SetTransitions(null, ret);
         ret.SetTransitions(wander, null);
 
-        // Mulai dari Wander
         fsm.ChangeTo(wander);
     }
 
-    // --- Helper Methods untuk State ---
     public void MoveTowards(Vector2 target, float speed)
     {
         Vector2 dir = (target - (Vector2)transform.position).normalized;
@@ -89,43 +100,62 @@ public class WildMonster : MonoBehaviour
     public float GiveUpRadius => giveUpRadius;
     public float WanderRadius => wanderRadius;
 
-    private BattleSession session;
-    private SceneFlow sceneFlow;
-    private PlayerParty party;  
-
     public void Construct(BattleSession session, SceneFlow sceneFlow, PlayerParty party, Transform player)
     {
         this.session = session;
         this.sceneFlow = sceneFlow;
         this.party = party;
-        this.playerTransform = player;
+        if (player != null) this.playerTransform = player;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   private void OnCollisionEnter2D(Collision2D collision)
+{
+    Debug.Log($"[WildMonster] 🎯 Tabrakan terdeteksi! Objek: {collision.gameObject.name}, Tag: {collision.gameObject.tag}");
+    
+    if (collision.gameObject.CompareTag("Player") && !inBattle)
     {
-        // Jika menabrak player, waktu aman habis, dan belum battle
-        if (collision.gameObject.CompareTag("Player") && !session.IsSafe && !inBattle)
-        {
-            StartBattle();
-        }
-    }
-
-    private void StartBattle()
-    {
-        inBattle = true;
-        Stop(); // Monster berhenti bergerak
+        Debug.Log("[WildMonster] ✅ Player tertabrak! Cek session...");
         
-        // Kunci input player
-        // services.Input.Lock(); (Akan dihandle di SceneFlow/BattleSession nanti)
-
-        // Pindah ke scene battle
-        // sceneFlow.GoTo("Scn_Battle");
-        Debug.Log("Battle dimulai!");
+        if (session == null)
+        {
+            Debug.LogError("[WildMonster] ❌ Session NULL!");
+            return;
+        }
+        
+        if (session.IsSafe)
+        {
+            Debug.Log("[WildMonster] ⏳ Session masih aman.");
+            return;
+        }
+        
+        Debug.Log("[WildMonster] 🚀 Mulai battle...");
+        StartBattle();
     }
 }
 
+private void StartBattle()
+{
+    Debug.Log($"[WildMonster] 🎯 StartBattle()! Instance: {(Instance != null ? Instance.Data.DisplayName : "NULL")}");
+    
+    if (Instance == null)
+    {
+        Debug.LogError("[WildMonster] ❌ Instance NULL! Isi 'Monster Data' di Inspector.");
+        return;
+    }
+
+    inBattle = true;
+    session.Begin(Instance, IsBoss);
+    
+    BattleSystem battle = new BattleSystem(party, session, sceneFlow);
+    Debug.Log($"[WildMonster] ⚔️ BattleSystem dibuat. Musuh: {battle.Enemy.Data.DisplayName}");
+    
+    battle.Begin();
+    Debug.Log("[WildMonster] 🚀 battle.Begin() dipanggil!");
+}
+} // <--- INI MENUTUP CLASS WILDMONSTER
+
 // ==========================================
-// CLASS STATE (Bisa ditaruh di file yang sama)
+// CLASS STATE (BERADA DI LUAR CLASS WILDMONSTER)
 // ==========================================
 
 public class WanderState : IState
@@ -146,19 +176,18 @@ public class WanderState : IState
 
     public void Tick(float dt)
     {
-        // Cek apakah player dekat? -> Kejar!
+        if (ctx.Player == null) return;
+
         float dist = Vector2.Distance(ctx.transform.position, ctx.Player.position);
         if (dist < ctx.SightRadius && toChase != null)
         {
-            ctx.fsm.ChangeTo(toChase); // Perlu akses fsm, kita buat public di WildMonster
+            ctx.fsm.ChangeTo(toChase);
             return;
         }
 
-        // Jalan ke titik acak
         ctx.MoveTowards(targetPoint, ctx.WanderSpeed);
         timer -= dt;
 
-        // Jika sampai atau waktu habis, cari titik baru
         if (Vector2.Distance(ctx.transform.position, targetPoint) < 0.1f || timer <= 0)
         {
             PickNewPoint();
@@ -187,6 +216,8 @@ public class ChaseState : IState
 
     public void Tick(float dt)
     {
+        if (ctx.Player == null) return;
+
         float dist = Vector2.Distance(ctx.transform.position, ctx.Player.position);
         
         if (dist > ctx.GiveUpRadius && toReturn != null)
@@ -215,7 +246,6 @@ public class ReturnState : IState
     {
         float dist = Vector2.Distance(ctx.transform.position, ctx.Home);
         
-        // Jika sudah sampai di rumah -> Wander lagi
         if (dist < 0.5f && toWander != null)
         {
             ctx.fsm.ChangeTo(toWander);

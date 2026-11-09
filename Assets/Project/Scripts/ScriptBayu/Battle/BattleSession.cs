@@ -1,41 +1,32 @@
 using System;
 using UnityEngine;
 
-public enum BattleResult { Win, Lose, Flee }
+public enum BattleResult { None, Win, Lose, Flee }
 
 public class BattleSession
 {
-    public const float SafeSeconds = 2.2f; // Waktu aman setelah battle!
+    public const float SafeSeconds = 2.2f;
     
     public MonsterInstance Enemy { get; private set; }
     public bool IsBoss { get; private set; }
     public bool IsSafe => Time.time < safeUntil;
+    
+    // PASTIKAN BARIS INI ADA:
+    public BattleSystem ActiveBattle { get; set; }
 
     private float safeUntil;
-    private Action<BattleResult> onFinished;
-    public event Action<BattleResult, bool> Ended; // (hasil, isBoss)
 
-    public void Begin(MonsterInstance enemy, bool isBoss, Action<BattleResult> callback)
+    public void Begin(MonsterInstance enemy, bool isBoss)
     {
         Enemy = enemy;
         IsBoss = isBoss;
-        onFinished = callback;
     }
 
     public void Finish(BattleResult result)
     {
-        Action<BattleResult> callback = onFinished;
-        bool wasBoss = IsBoss;
-        
-        // Reset data battle
-        onFinished = null; 
-        Enemy = null; 
+        safeUntil = Time.time + SafeSeconds;
+        Enemy = null;
         IsBoss = false;
-        
-        // Set waktu aman 2,2 detik
-        safeUntil = Time.time + SafeSeconds; 
-
-        callback?.Invoke(result);
-        Ended?.Invoke(result, wasBoss);
+        ActiveBattle = null; // Reset saat selesai
     }
 }
