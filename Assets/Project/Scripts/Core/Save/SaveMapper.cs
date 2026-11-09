@@ -5,7 +5,7 @@ public static class SaveMapper
     public static SaveData Capture(GameServices s, Vector2 playerPosition)
     {
         var data = new SaveData { playerPosition = playerPosition, potions = s.Party.Potions,
-                                  playtime = s.Save.Playtime, flags = s.Flags.ToList() };
+                                  playtime = s.Party.Playtime, flags = s.Flags.ToList() };
         MonsterInstance p = s.Party.Partner;
         if (p != null)
         {
@@ -29,6 +29,6 @@ public static class SaveMapper
         }
         s.Party.SetPotions(data.potions);
         s.Flags.Load(data.flags);
-        s.Save.SetPlaytime(data.playtime);
+        s.Party.Playtime = data.playtime;
     }
 }

@@ -35,4 +35,11 @@ public class GameBootstrap : MonoBehaviour
     }
 
     void Start() => services.Scenes.GoTo(firstScene);
+
+    void Update()
+    {
+        // Battle dimuat DI ATAS dunia, jadi scene utama tetap Scn_World selama battle
+        if (services != null && services.Scenes.CurrentSceneName == SceneFlow.WorldScene)
+            services.Party.Playtime += Time.unscaledDeltaTime;
+    }
 }

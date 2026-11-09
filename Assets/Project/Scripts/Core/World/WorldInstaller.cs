@@ -68,11 +68,35 @@ public class WorldInstaller : SceneInstaller
 
     private void OnBattleEnded(BattleResult result, bool wasBoss)
     {
-        if (result == BattleResult.Win && wasBoss) services.Flags.Set(StoryFlags.BossDefeated);
+        if (result == BattleResult.Win && wasBoss)
+        {
+            services.Flags.Set(StoryFlags.BossDefeated);
+            StartCoroutine(Ending());
+            return;
+        }
+        if (result == BattleResult.Lose)
+        {
+            services.Party.Partner.FullHeal();
+            if (respawnPoint != null) WarpPlayer(respawnPoint.position, Vector2.up);   // kalah: ke (21,5; 6)
+        }
+    }
 
-        if (result != BattleResult.Lose) return;
-        services.Party.Partner.FullHeal();
-        if (respawnPoint != null) WarpPlayer(respawnPoint.position, Vector2.down);
+    private IEnumerator Ending()
+    {
+        while (services.Scenes.Busy) yield return null;            // tunggu fade selesai
+        services.Dialogue.Run(EndingLines());
+        yield return null;
+        while (services.Dialogue.IsRunning) yield return null;
+
+        services.Save.Save(SaveMapper.Capture(services, player.transform.position));   // simpan otomatis
+        services.Scenes.GoTo(SceneFlow.EndScene);
+    }
+
+    // Baris pertama dari modul; baris kedua (tambahan) usulan saya
+    private IEnumerator EndingLines()
+    {
+        yield return services.Dialogue.Narrate("Raijugar menunduk dan membiarkanmu lewat...");
+        yield return services.Dialogue.Narrate("Petir di gua mereda. Perjalananmu di pulau ini baru saja dimulai.");
     }
 
     // Pindahkan pemain dan beri tahu Cinemachine agar kamera ikut langsung, bukan meluncur

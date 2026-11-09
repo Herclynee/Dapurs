@@ -1407,6 +1407,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &863186153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863186155}
+  - component: {fileID: 863186154}
+  m_Layer: 0
+  m_Name: Hit Vfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &863186154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863186153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8695ca5194bc02a4f8f8bba5218ad54f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VfxPool
+  prefab: {fileID: 3193121915237590002, guid: 825d25bd6f726a042a2b1d092974d35a, type: 3}
+--- !u!4 &863186155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863186153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 554.2762, y: 485.86658, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902239785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,8 +1658,8 @@ MonoBehaviour:
   background: {fileID: 938195851}
   forestBackground: {fileID: 21300000, guid: e187724534a49894aba4be16af22cb6e, type: 3}
   caveBackground: {fileID: 21300000, guid: e5054db837868b4458044ae97063d299, type: 3}
-  battleMusic: {fileID: 0}
-  bossMusic: {fileID: 0}
+  battleMusic: {fileID: 8300000, guid: f99ac3b2056aa14409f8e8c06fef6084, type: 3}
+  bossMusic: {fileID: 8300000, guid: eb46147a152ff3647933ff228b25e6f4, type: 3}
   sfx:
     hit: {fileID: 0}
     critical: {fileID: 0}
@@ -1623,6 +1668,7 @@ MonoBehaviour:
     victory: {fileID: 0}
     levelUp: {fileID: 0}
     evolve: {fileID: 0}
+  feel: {fileID: 1953190421}
 --- !u!114 &972446718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2851,6 +2897,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PixelBurst
   pixel: {fileID: -2156070838071276373, guid: 01f02982dd8e54248b14871fe489c267, type: 3}
   gravity: 2.5
+  sortingLayer: Characters
+  sortingOrder: 100
+  material: {fileID: 0}
 --- !u!4 &1952143678
 Transform:
   m_ObjectHideFlags: 0
@@ -2861,6 +2910,55 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.87394, y: 14.82097, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1953190420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953190422}
+  - component: {fileID: 1953190421}
+  m_Layer: 0
+  m_Name: BattleFeel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1953190421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953190420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e67440f88e54f447bc1cef0e58b5250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleFeel
+  cameraRig: {fileID: 1430361711}
+  playerBody: {fileID: 14406988}
+  enemyBody: {fileID: 783018152}
+  burst: {fileID: 1952143677}
+  hitVfx: {fileID: 863186154}
+--- !u!4 &1953190422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953190420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 554.2762, y: 485.86658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3217,3 +3315,5 @@ SceneRoots:
   - {fileID: 972446719}
   - {fileID: 552084086}
   - {fileID: 1952143678}
+  - {fileID: 863186155}
+  - {fileID: 1953190422}

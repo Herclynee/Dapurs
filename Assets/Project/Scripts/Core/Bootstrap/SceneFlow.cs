@@ -7,6 +7,7 @@ public class SceneFlow
     public const string TitleScene = "Scn_Title";
     public const string WorldScene = "Scn_World";
     public const string BattleScene = "Scn_Battle";
+    public const string EndScene = "Scn_End";
 
     public bool HoldFade;                     
     public bool Busy { get; private set; }

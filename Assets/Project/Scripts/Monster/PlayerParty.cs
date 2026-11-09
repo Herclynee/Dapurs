@@ -6,6 +6,7 @@ public class PlayerParty
     public int Potions { get; private set; } = 3;
     public event Action Changed;
     public event Action PotionsChanged;
+    public float Playtime;                 // detik, bertambah di GameBootstrap
 
     public void SetPartner(MonsterInstance monster) { Partner = monster; Changed?.Invoke(); }
 

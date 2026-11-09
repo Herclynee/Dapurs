@@ -7,6 +7,17 @@ public class StarterGiver : Npc
     [SerializeField] private int starterLevel = 3;
     [SerializeField] private AudioClip gotClip;
 
+    public static Color ElementColor(Element e)
+    {
+        switch (e)
+        {
+            case Element.Pyro:   return new Color32(255, 138, 61, 255);    // oranye
+            case Element.Aqua:   return new Color32(77, 166, 255, 255);    // biru
+            case Element.Sprout: return new Color32(124, 192, 97, 255);    // hijau daun
+            default:             return new Color32(255, 216, 74, 255);    // Volt: kuning
+        }
+    }
+
     protected override IEnumerator Talk()
     {
         if (Flags.Has(StoryFlags.HasStarter))                 // (tambahan) sudah punya partner

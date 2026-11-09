@@ -10,6 +10,7 @@ public class BattleInstaller : SceneInstaller
     [SerializeField] private AudioClip battleMusic;            // BGM_Battle
     [SerializeField] private AudioClip bossMusic;              // BGM_Boss
     [SerializeField] private BattleSfx sfx;
+    [SerializeField] private BattleFeel feel;       // field baru
 
     public override void Install(GameServices s)
     {
@@ -21,6 +22,7 @@ public class BattleInstaller : SceneInstaller
             s.Audio.PlayBattleMusic(s.Battle.IsBoss ? bossMusic : battleMusic);
             new BattleAudio(battle, s.Audio, sfx);
         }
+        if (feel != null) feel.Construct(battle);
         battle.Begin();                                         // P7: + BattleFeel
     }
 }

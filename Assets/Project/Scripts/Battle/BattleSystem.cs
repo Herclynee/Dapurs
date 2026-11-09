@@ -14,6 +14,8 @@ public class BattleSystem : MonoBehaviour
     public event Action<MonsterInstance> Attacked;
     public event Action<MonsterInstance, int, bool, Element?> Hit;   // target, damage, kritis, elemen jurus
     public event Action Missed;
+    public event Action<MonsterInstance> Healed;
+    public void RaiseHealed(MonsterInstance m) => Healed?.Invoke(m);
     public event Action<MonsterInstance> Fainted;
     public event Action Victory;
     public event Action<MonsterData> LevelUp;                        // wujud yang ditampilkan

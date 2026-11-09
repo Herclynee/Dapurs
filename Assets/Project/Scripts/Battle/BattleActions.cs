@@ -73,6 +73,7 @@ public class PotionAction : BattleAction
             yield break;
         }
         int healed = user.Heal(Mathf.RoundToInt(user.MaxHP * 0.4f));
+        battle.RaiseHealed(user);
         yield return battle.Say($"{user.Data.DisplayName} meminum Ramuan dan pulih {healed} HP.", 0.9f);
     }
 }
