@@ -9,7 +9,8 @@ public class PartnerHud : MonoBehaviour
     [SerializeField] private Text hpText;
     [SerializeField] private Image expFill;
     [SerializeField] private Text areaText;      
-    [SerializeField] private Text potionText;    
+    [SerializeField] private Text potionText;
+    [SerializeField] private GameObject partnerPanel;       // objek PartnerPanel    
 
     private PlayerParty party;
 
@@ -34,7 +35,8 @@ public class PartnerHud : MonoBehaviour
     {
         if (party == null) return;
         MonsterInstance m = party.Partner;
-        portrait.enabled = m != null;
+
+        if (partnerPanel != null) partnerPanel.SetActive(m != null);   // tampil hanya jika ada partner
         if (m == null) return;
 
         portrait.sprite = m.Data.Frames[0];

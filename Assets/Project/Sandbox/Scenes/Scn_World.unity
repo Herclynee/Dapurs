@@ -17960,6 +17960,7 @@ MonoBehaviour:
   expFill: {fileID: 284209910}
   areaText: {fileID: 1314710903}
   potionText: {fileID: 2040709935}
+  partnerPanel: {fileID: 1405425181}
 --- !u!1 &600074908
 GameObject:
   m_ObjectHideFlags: 0
@@ -26473,6 +26474,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PixelBurst
   pixel: {fileID: -2156070838071276373, guid: 01f02982dd8e54248b14871fe489c267, type: 3}
   gravity: 2.5
+  sortingLayer: Characters
+  sortingOrder: 100
+  material: {fileID: 0}
 --- !u!4 &1579927428
 Transform:
   m_ObjectHideFlags: 0
