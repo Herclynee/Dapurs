@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AOC_Mon_Bloomlet
+  m_Controller: {fileID: 9100000, guid: ca49caa4f60a4af4f90fb4808ef4ec68, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c79ed2feafcad1240830b8ddeda40718, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: edd943eddea344f4496b25e5c52bbfc1, type: 2}

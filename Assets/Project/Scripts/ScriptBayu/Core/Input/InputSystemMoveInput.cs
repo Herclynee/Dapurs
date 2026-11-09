@@ -4,14 +4,28 @@ using UnityEngine.InputSystem;
 public class InputSystemMoveInput : IMoveInput
 {
     private readonly InputAction move;
-    private readonly InputAction sprint;
 
     public InputSystemMoveInput()
     {
-        move = InputSystem.actions.FindAction("Move");
-        sprint = InputSystem.actions.FindAction("Sprint");
+        move = InputSystem.actions?.FindAction("Move");
     }
 
-    public Vector2 Move => move.ReadValue<Vector2>();
-    public bool IsRunning => sprint != null && sprint.IsPressed();
+    public Vector2 Move
+    {
+        get
+        {
+            if (move == null) return Vector2.zero;
+            return move.ReadValue<Vector2>();
+        }
+    }
+
+    public bool IsRunning
+    {
+        get
+        {
+            return Keyboard.current != null && 
+                   (Keyboard.current.leftShiftKey.isPressed || 
+                    Keyboard.current.rightShiftKey.isPressed);
+        }
+    }
 }
