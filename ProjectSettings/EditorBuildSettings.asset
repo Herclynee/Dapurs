@@ -6,7 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
+HEAD
+HEAD
     path: Assets/_Project/Scene/Sandbox/Scn_Bootstrap.unity
     guid: 99fa31b7093f35b419871ccc2cad5857
   - enabled: 0
@@ -14,9 +15,12 @@ EditorBuildSettings:
     guid: b1c5693590bfbc74195bab537b6221e4
   - enabled: 1
     path: Assets/_Project/Scene/Sandbox/Scn_world.unity
-=======
+
     path: Assets/Sandbox/Scenes/SampleScene.unity
->>>>>>> bd7e94e86d3553626756a4fda834ae21e942fca6
+ bd7e94e86d3553626756a4fda834ae21e942fca6
+
+    path: Assets/Sandbox/Scenes/SampleScene.unity
+ bd7e94e86d3553626756a4fda834ae21e942fca6
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Sandbox/Scenes/Scn_Bayu.unity
