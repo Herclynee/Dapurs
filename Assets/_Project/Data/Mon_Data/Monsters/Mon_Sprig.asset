@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Sprig
   element: 2
   frames:
-  - {fileID: -7283860158897311374, guid: 6be8fda3c324995498896d33802fe47d, type: 3}
-  - {fileID: -6985323381613182270, guid: 6be8fda3c324995498896d33802fe47d, type: 3}
-  - {fileID: -5149643011442016566, guid: 6be8fda3c324995498896d33802fe47d, type: 3}
-  - {fileID: 5098394551154596141, guid: 6be8fda3c324995498896d33802fe47d, type: 3}
+  - {fileID: -7283860158897311374, guid: 03e72d068f94cfa4e8062ca41ca17f73, type: 3}
+  - {fileID: -6985323381613182270, guid: 03e72d068f94cfa4e8062ca41ca17f73, type: 3}
+  - {fileID: -5149643011442016566, guid: 03e72d068f94cfa4e8062ca41ca17f73, type: 3}
+  - {fileID: 5098394551154596141, guid: 03e72d068f94cfa4e8062ca41ca17f73, type: 3}
   baseHP: 40
   baseATK: 14
   baseDEF: 10

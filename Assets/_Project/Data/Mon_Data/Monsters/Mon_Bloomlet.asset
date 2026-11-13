@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Bloomlet
   element: 2
   frames:
-  - {fileID: 6955321418916534307, guid: 56db2a12f0856024db99da6a27e8542c, type: 3}
-  - {fileID: -8243668992453361424, guid: 56db2a12f0856024db99da6a27e8542c, type: 3}
-  - {fileID: 7787965359253415463, guid: 56db2a12f0856024db99da6a27e8542c, type: 3}
-  - {fileID: 5695320654656185471, guid: 56db2a12f0856024db99da6a27e8542c, type: 3}
+  - {fileID: 6955321418916534307, guid: d558cdce7a4800e4896249e06b51189a, type: 3}
+  - {fileID: -8243668992453361424, guid: d558cdce7a4800e4896249e06b51189a, type: 3}
+  - {fileID: 7787965359253415463, guid: d558cdce7a4800e4896249e06b51189a, type: 3}
+  - {fileID: 5695320654656185471, guid: d558cdce7a4800e4896249e06b51189a, type: 3}
   baseHP: 60
   baseATK: 20
   baseDEF: 15

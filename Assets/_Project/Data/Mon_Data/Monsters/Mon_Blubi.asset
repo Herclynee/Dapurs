@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Mon_Blubi
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   id: MON_004
-  displayName: Bluubi
+  displayName: Blubi
   element: 1
   frames:
-  - {fileID: 3550268219214689552, guid: 895a9583da4f70147827fae0d81c8042, type: 3}
-  - {fileID: -2294804109517415057, guid: 895a9583da4f70147827fae0d81c8042, type: 3}
-  - {fileID: 1409870405, guid: 895a9583da4f70147827fae0d81c8042, type: 3}
-  - {fileID: 1823538596, guid: 895a9583da4f70147827fae0d81c8042, type: 3}
+  - {fileID: 3550268219214689552, guid: b69533454191d5c43ab8bce47278b5d1, type: 3}
+  - {fileID: -2294804109517415057, guid: b69533454191d5c43ab8bce47278b5d1, type: 3}
+  - {fileID: -1498737672, guid: b69533454191d5c43ab8bce47278b5d1, type: 3}
+  - {fileID: 990471061, guid: b69533454191d5c43ab8bce47278b5d1, type: 3}
   baseHP: 40
   baseATK: 14
   baseDEF: 10

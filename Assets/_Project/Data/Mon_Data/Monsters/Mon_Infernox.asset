@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Inferno
   element: 0
   frames:
-  - {fileID: 6369372968611698638, guid: aeb7efa65503c234dbdf12877901d1e2, type: 3}
-  - {fileID: -2421290444535812123, guid: aeb7efa65503c234dbdf12877901d1e2, type: 3}
-  - {fileID: -8276751755319607597, guid: aeb7efa65503c234dbdf12877901d1e2, type: 3}
-  - {fileID: 3066761988406247495, guid: aeb7efa65503c234dbdf12877901d1e2, type: 3}
+  - {fileID: 6369372968611698638, guid: 4eea82cd98bc44a40aaac3e41c46caec, type: 3}
+  - {fileID: -2421290444535812123, guid: 4eea82cd98bc44a40aaac3e41c46caec, type: 3}
+  - {fileID: -8276751755319607597, guid: 4eea82cd98bc44a40aaac3e41c46caec, type: 3}
+  - {fileID: 3066761988406247495, guid: 4eea82cd98bc44a40aaac3e41c46caec, type: 3}
   baseHP: 100
   baseATK: 50
   baseDEF: 20

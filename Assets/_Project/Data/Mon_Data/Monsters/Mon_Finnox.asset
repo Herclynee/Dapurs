@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Finnox
   element: 1
   frames:
-  - {fileID: -82409557241251320, guid: 55519f57bd4e71149804a13f0453361f, type: 3}
-  - {fileID: 577759283797168821, guid: 55519f57bd4e71149804a13f0453361f, type: 3}
-  - {fileID: -1137955914, guid: 55519f57bd4e71149804a13f0453361f, type: 3}
-  - {fileID: 1799718865, guid: 55519f57bd4e71149804a13f0453361f, type: 3}
+  - {fileID: -82409557241251320, guid: dc6de1b494b7c0541a82129ad9dc85f8, type: 3}
+  - {fileID: 577759283797168821, guid: dc6de1b494b7c0541a82129ad9dc85f8, type: 3}
+  - {fileID: 466056992, guid: dc6de1b494b7c0541a82129ad9dc85f8, type: 3}
+  - {fileID: 1540037333, guid: dc6de1b494b7c0541a82129ad9dc85f8, type: 3}
   baseHP: 60
   baseATK: 20
   baseDEF: 15

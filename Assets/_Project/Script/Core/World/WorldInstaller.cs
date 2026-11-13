@@ -1,18 +1,38 @@
 using UnityEngine;
 
-public class WorldInstaller : MonoBehaviour
+public class WorldInstaller : SceneInstaller
 {
     [SerializeField] private PlayerMovement player;
-    
-    // 1. TAMBAHKAN BARIS INI (Variabel untuk interactor)
-    [SerializeField] private PlayerInteractor interactor; 
+    [SerializeField] private PlayerInteractor interactor;
+    [SerializeField] private MonsterData debugStarter;
+    [SerializeField] private PartnerFollower follower;
 
-    // 2. UBAH METHOD INSTALL INI (Menerima 2 parameter)
-    public void Install(IMoveInput moveInput, IActionInput actionInput)
+    // TAMBAHKAN INI: Fallback jika Install() tidak dipanggil SceneFlow
+    private void Awake()
     {
-        player.Construct(moveInput);
-        
-        // 3. TAMBAHKAN BARIS INI (Menyuntikkan input ke interactor)
-        interactor.Construct(actionInput); 
+        // Cek apakah sudah di-Install oleh SceneFlow
+        if (player == null)
+        {
+            player = FindAnyObjectByType<PlayerMovement>();
+            interactor = FindAnyObjectByType<PlayerInteractor>();
+        }
+    }
+
+    public override void Install(GameServices s)
+    {
+        if (player != null) player.Construct(s.Input);
+        if (interactor != null) interactor.Construct(s.Input);
+
+        foreach (WildMonster wild in FindObjectsByType<WildMonster>())
+        {
+            wild.Construct(s.Battle, s.Scenes, s.Party, player.transform);
+        }
+
+        if (s.Party.Partner == null && debugStarter != null)
+        {
+            s.Party.SetPartner(new MonsterInstance(debugStarter, 3));
+        }
+
+        if (follower != null) follower.Construct(s.Party, player);
     }
 }

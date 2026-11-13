@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Pyrago
   element: 0
   frames:
-  - {fileID: 8755920683797037524, guid: 3b2cb54ffe1cb794ba15615deae5a4a2, type: 3}
-  - {fileID: -7539585116564123273, guid: 3b2cb54ffe1cb794ba15615deae5a4a2, type: 3}
-  - {fileID: -5479648298827912421, guid: 3b2cb54ffe1cb794ba15615deae5a4a2, type: 3}
-  - {fileID: -2805825380046316048, guid: 3b2cb54ffe1cb794ba15615deae5a4a2, type: 3}
+  - {fileID: 8755920683797037524, guid: febfcc86ae87cba40b2e344e35246731, type: 3}
+  - {fileID: -7539585116564123273, guid: febfcc86ae87cba40b2e344e35246731, type: 3}
+  - {fileID: -5479648298827912421, guid: febfcc86ae87cba40b2e344e35246731, type: 3}
+  - {fileID: -2805825380046316048, guid: febfcc86ae87cba40b2e344e35246731, type: 3}
   baseHP: 60
   baseATK: 20
   baseDEF: 15

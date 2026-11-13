@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   id: MON_012
   displayName: Raijugar
-  element: 0
+  element: 3
   frames:
-  - {fileID: -4809201893061458815, guid: 12565491cd7e14340a33f6e27423fbf4, type: 3}
-  - {fileID: -631046067222884029, guid: 12565491cd7e14340a33f6e27423fbf4, type: 3}
-  - {fileID: 6403342763153997564, guid: 12565491cd7e14340a33f6e27423fbf4, type: 3}
-  - {fileID: -8004602595372667140, guid: 12565491cd7e14340a33f6e27423fbf4, type: 3}
+  - {fileID: -4809201893061458815, guid: e5d916835c6fb014dbfe07dbf20e41c9, type: 3}
+  - {fileID: -631046067222884029, guid: e5d916835c6fb014dbfe07dbf20e41c9, type: 3}
+  - {fileID: 6403342763153997564, guid: e5d916835c6fb014dbfe07dbf20e41c9, type: 3}
+  - {fileID: -8004602595372667140, guid: e5d916835c6fb014dbfe07dbf20e41c9, type: 3}
   baseHP: 100
   baseATK: 50
   baseDEF: 20

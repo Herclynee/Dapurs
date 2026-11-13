@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Florazor
   element: 2
   frames:
-  - {fileID: 5399268310089473969, guid: 817d37a148cb06f45915809f19b6e4cc, type: 3}
-  - {fileID: 2686710127943313334, guid: 817d37a148cb06f45915809f19b6e4cc, type: 3}
-  - {fileID: -2318018472806955476, guid: 817d37a148cb06f45915809f19b6e4cc, type: 3}
-  - {fileID: -8020853121881056685, guid: 817d37a148cb06f45915809f19b6e4cc, type: 3}
+  - {fileID: 5399268310089473969, guid: 0775c4fe51f107c4c9441c4e15a346fa, type: 3}
+  - {fileID: 2686710127943313334, guid: 0775c4fe51f107c4c9441c4e15a346fa, type: 3}
+  - {fileID: -2318018472806955476, guid: 0775c4fe51f107c4c9441c4e15a346fa, type: 3}
+  - {fileID: -8020853121881056685, guid: 0775c4fe51f107c4c9441c4e15a346fa, type: 3}
   baseHP: 100
   baseATK: 50
   baseDEF: 20

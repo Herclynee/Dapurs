@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Mon_Voltcat
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   id: MON_011
-  displayName: Votcat
+  displayName: Voltcat
   element: 3
   frames:
-  - {fileID: 8634615812561038026, guid: cfef7d8a91e4fe84caef630e27b000db, type: 3}
-  - {fileID: -8589505082050858085, guid: cfef7d8a91e4fe84caef630e27b000db, type: 3}
-  - {fileID: -6533350546223980106, guid: cfef7d8a91e4fe84caef630e27b000db, type: 3}
-  - {fileID: -5521631790070127741, guid: cfef7d8a91e4fe84caef630e27b000db, type: 3}
+  - {fileID: 8634615812561038026, guid: 8b53c0862724a0540b02d92bdaff0dd1, type: 3}
+  - {fileID: -8589505082050858085, guid: 8b53c0862724a0540b02d92bdaff0dd1, type: 3}
+  - {fileID: -6533350546223980106, guid: 8b53c0862724a0540b02d92bdaff0dd1, type: 3}
+  - {fileID: -5521631790070127741, guid: 8b53c0862724a0540b02d92bdaff0dd1, type: 3}
   baseHP: 60
   baseATK: 20
   baseDEF: 15

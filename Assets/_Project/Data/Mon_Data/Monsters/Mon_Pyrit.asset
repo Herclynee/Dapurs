@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Pyrit
   element: 0
   frames:
-  - {fileID: 6730592714643520030, guid: 9cbaf236f85bae84da3000c6bf638d75, type: 3}
-  - {fileID: 6287700794659138293, guid: 9cbaf236f85bae84da3000c6bf638d75, type: 3}
-  - {fileID: 3400974187047350328, guid: 9cbaf236f85bae84da3000c6bf638d75, type: 3}
-  - {fileID: 8599415510975893307, guid: 9cbaf236f85bae84da3000c6bf638d75, type: 3}
+  - {fileID: 6730592714643520030, guid: 6f7a5457374f6eb4097dd1bfd182a6db, type: 3}
+  - {fileID: 6287700794659138293, guid: 6f7a5457374f6eb4097dd1bfd182a6db, type: 3}
+  - {fileID: 3400974187047350328, guid: 6f7a5457374f6eb4097dd1bfd182a6db, type: 3}
+  - {fileID: 8599415510975893307, guid: 6f7a5457374f6eb4097dd1bfd182a6db, type: 3}
   baseHP: 40
   baseATK: 14
   baseDEF: 10

@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Zapi
   element: 3
   frames:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 306181386679292275, guid: 5b384ed5ff6812f4f9e6e35c1e4d9479, type: 3}
+  - {fileID: -2155714682058758792, guid: 5b384ed5ff6812f4f9e6e35c1e4d9479, type: 3}
+  - {fileID: 4825513497617621001, guid: 5b384ed5ff6812f4f9e6e35c1e4d9479, type: 3}
+  - {fileID: 6648961527950131304, guid: 5b384ed5ff6812f4f9e6e35c1e4d9479, type: 3}
   baseHP: 40
   baseATK: 14
   baseDEF: 10

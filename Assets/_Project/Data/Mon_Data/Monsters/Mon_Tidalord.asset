@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Tidalord
   element: 1
   frames:
-  - {fileID: -2440824096329132786, guid: 36eebc5c5753e2344bcdbbbb3a719019, type: 3}
-  - {fileID: -4983965312679311996, guid: 36eebc5c5753e2344bcdbbbb3a719019, type: 3}
-  - {fileID: -1439508501, guid: 36eebc5c5753e2344bcdbbbb3a719019, type: 3}
-  - {fileID: 186586620, guid: 36eebc5c5753e2344bcdbbbb3a719019, type: 3}
+  - {fileID: -2440824096329132786, guid: 3fb5e6096a346924381ff4bfcb2471a1, type: 3}
+  - {fileID: -4983965312679311996, guid: 3fb5e6096a346924381ff4bfcb2471a1, type: 3}
+  - {fileID: 701832581, guid: 3fb5e6096a346924381ff4bfcb2471a1, type: 3}
+  - {fileID: -2022106453, guid: 3fb5e6096a346924381ff4bfcb2471a1, type: 3}
   baseHP: 100
   baseATK: 50
   baseDEF: 20
